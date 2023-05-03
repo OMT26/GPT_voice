@@ -14,6 +14,7 @@ openai.api_key = os.getenv('OPENAI_API')
 
 engine = pyttsx3.init()
 
+NAME = os.getenv('NAME')
 CHARACTER_PROMPT = os.getenv('CHARACTER_PROMPT')
 RULES = os.getenv('RULES_PROMPT')
 MEMORY = os.getenv('MEMORY')
@@ -73,7 +74,7 @@ def main():
     global conversation
     global short_memory
     while True:
-        print("Dis 'Sophie' dans ta phrase pour qu'elle ce réveil, ex: 'Hey Sophie ça va?'") if mic_on == False else None
+        print(f"Dis '{NAME}' dans ta phrase pour qu'elle ce réveil, ex: 'Hey {NAME} ça va?'") if mic_on == False else None
         with sr.Microphone(device_index=0) as source:
             try:
                 filename="input.wav"
@@ -84,7 +85,7 @@ def main():
                     with open(filename, "wb") as f:
                         f.write(audio.get_wav_data())
                     text = transcribe_audio_to_text(filename)
-                    if len(text) != 0 and ("Sophie" in text['alternative'][0]['transcript']) == True:
+                    if len(text) != 0 and (NAME in text['alternative'][0]['transcript']) == True:
                         print (f"Tu as dis : {text['alternative'][0]['transcript']}")
 
                         response = generate_response(text['alternative'][0]['transcript'])
@@ -92,7 +93,7 @@ def main():
                             mic_on = True
                         else:
                             mic_on = False    
-                        print (f"Sophie dis : {response['response']}")
+                        print (f"{NAME} dis : {response['response']}")
                         if response['code'] != "":
                             print(response['code'])
                         if response['action'] == "refresh":   
@@ -121,7 +122,7 @@ def main():
                         print(text)
                 else:  
                     filename="input.wav"
-                    print("Sophie t'écoute...")
+                    print(f"{NAME} t'écoute...")
                     with sr.Microphone() as source:
                         recognizer = sr.Recognizer()
                         source.pause_threshold = 1
@@ -138,7 +139,7 @@ def main():
                             mic_on = True
                         else:
                             mic_on = False  
-                        print (f"Sophie dis : {response['response']}")
+                        print (f"{NAME} dis : {response['response']}")
                         if response['code'] != "":
                             print(response['code'])
                         if response['action'] == "refresh":   
