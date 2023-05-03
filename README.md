@@ -14,9 +14,16 @@ pip install -r requirements.txt
 
 ## Configuration
 
-Créez un fichier .env à la racine du projet avec les clés d'API OpenAI et les autres paramètres nécessaires. Voici un exemple de fichier .env :
+Créez un fichier .env à la racine du projet avec les clés d'API OpenAI et les autres paramètres nécessaires. Vous pouvez utiliser le fichier .env.example comme modèle :
 
-Create an .env file in the root of the project with the OpenAI API keys and other necessary settings. Here is an example of an .env file:
+Create an .env file in the root of the project with the OpenAI API keys and other necessary settings. You can use the .env.example file as a template:
+
+OPENAI_API='API_Key'
+NAME='Sophie'
+CHARACTER_PROMPT='Ton personnage et ses caractéristiques | Your character and its characteristics'
+RULES_PROMPT='Les règles pour votre personnage | The rules for your character'
+MEMORY=True
+SPEECH_LANGAGE='fr-FR | en-US'
 
 ### Utilisation
 
