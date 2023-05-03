@@ -10,7 +10,9 @@ Pour installer les dépendances nécessaires, exécutez la commande suivante :
 
 To install the necessary dependencies, run the following command:
 
+```bash
 pip install -r requirements.txt
+```
 
 ## Configuration
 
@@ -18,12 +20,14 @@ Créez un fichier .env à la racine du projet avec les clés d'API OpenAI et les
 
 Create an .env file in the root of the project with the OpenAI API keys and other necessary settings. You can use the .env.example file as a template:
 
+```bash
 OPENAI_API='API_Key'
 NAME='Sophie'
 CHARACTER_PROMPT='Ton personnage et ses caractéristiques | Your character and its characteristics'
 RULES_PROMPT='Les règles pour votre personnage | The rules for your character'
 MEMORY=True
 SPEECH_LANGAGE='fr-FR | en-US'
+```
 
 ### Utilisation
 
@@ -31,7 +35,9 @@ Pour utiliser Sophie, exécutez le fichier principal :
 
 To use Sophie, run the main file:
 
+```bash
 python gpt_speech.py
+```
 
 Sophie est initialement en mode d'écoute passive. Pour activer Sophie, dites "Sophie" dans votre phrase, par exemple : "Hey Sophie, ça va ?". Une fois activée, Sophie écoutera et répondra à vos instructions.
 
