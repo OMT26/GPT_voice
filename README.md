@@ -29,7 +29,7 @@ MEMORY=True
 SPEECH_LANGAGE='fr-FR | en-US'
 ```
 
-### Utilisation
+## Utilisation
 
 Pour utiliser Sophie, exécutez le fichier principal :
 
