@@ -1,5 +1,5 @@
-
 *.txt
+!requirements.txt
 *.wav
 .env
 __pycache__/
