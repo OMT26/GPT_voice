@@ -11,15 +11,14 @@ from dotenv import load_dotenv
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
-# Set your OpenAI API key
 openai.api_key = os.getenv('OPENAI_API')
 
-# Initialize the text-to-speech engine
 engine = pyttsx3.init()
 
 CHARACTER_PROMPT = os.getenv('CHARACTER_PROMPT')
 RULES = os.getenv('RULES_PROMPT')
 MEMORY = os.getenv('MEMORY')
+SPEECH_LANGAGE = os.getenv('SPEECH_LANGAGE')
 
 conversation = ""
 
@@ -32,7 +31,7 @@ def transcribe_audio_to_text(filename):
     with sr.AudioFile(filename) as source:
         audio = recognizer.record(source)
     try:
-        return recognizer.recognize_google(audio, language="fr-FR",show_all=True)
+        return recognizer.recognize_google(audio, language=SPEECH_LANGAGE,show_all=True)
     except:
         print('Skipping unknown error')
 
@@ -55,7 +54,6 @@ def generate_response(prompt):
             stop=None,
             temperature=0.7,
         )
-        #print(response['usage']['total_tokens'])
         if int(response['usage']['total_tokens']) > 3000: 
             conversation = "" 
         replace = response["choices"][0]["text"].replace("#","hashtag").replace(r",[a-z]",',"')
@@ -76,7 +74,6 @@ def main():
     global conversation
     global short_memory
     while True:
-        # Wait for user to say "genius"
         print("Dis 'Sophie' dans ta phrase pour qu'elle ce réveil, ex: 'Hey Sophie ça va?'") if mic_on == False else None
         with sr.Microphone(device_index=0) as source:
             try:
