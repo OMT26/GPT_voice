@@ -25,8 +25,11 @@ Sophie est initialement en mode d'écoute passive. Pour activer Sophie, dites "S
 ## Fonctions principales
 
 Reconnaissance vocale : Sophie écoute et transcrit vos paroles en texte.
+
 Génération de réponse : Sophie génère une réponse appropriée à partir du texte reçu.
+
 Texte en parole : Sophie convertit la réponse générée en parole.
+
 Actions : Sophie peut effectuer différentes actions, telles que rafraîchir la conversation, sauvegarder des informations dans un fichier texte ou en mémoire.
 
 ## Licence
